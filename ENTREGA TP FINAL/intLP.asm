@@ -23,12 +23,13 @@ Funcion PROC FAR
         push cx
         push dx
 
-        mov ah, 06h       ; BIOS function 06h: Scroll up window
-        mov al, 00h       ; Number of lines to scroll up (0 = clear entire window)
-        mov bh, 07h       ; Attribute used to write blank lines (07h = light gray on black)
-        mov cx, 0000h     ; Upper-left corner of window (row=0, column=0)
-        mov dx, 184Fh     ; Lower-right corner of window (row=24, column=79)
-        int 10h           ; Call BIOS video interrupt
+        ;limpiar pantalla
+        mov ah, 06h
+        mov al, 00h
+        mov bh, 07h
+        mov cx, 0000h
+        mov dx, 184Fh
+        int 10h
 
         ;reubicar cursor
         mov ah, 02h
